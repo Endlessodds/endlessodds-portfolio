@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Single Page Site</title>
+	
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      font-family: Arial, sans-serif;
+      color: black;
+      overflow-x: hidden;
+      background: white;
+    }
+
+#about {
+  font-family: 'Vidaloka', serif;
+  font-size: 20px;
+  background: #fafafa;
+  padding: 40px 30px;
+    padding-top: 5px;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+  max-width: 900px;
+  margin: 0 auto 60px;
+  line-height: 1.75;
+  text-align: justify;
+}
+
+
+
+
+
+#typed-text {
+  font-family: 'Courier New', monospace;
+  font-size: 1.4rem;
+  color: #00ff88;
+  margin-top: 40px;
+
+  /* NEW FIXED HEIGHT TO PREVENT SHIFTING */
+  height: 4em; /* Adjust based on your font-size */
+  overflow: hidden;
+}
+
+
+
+ #typed-text::after {
+      content: '|';
+      animation: blink 0.7s infinite;
+    }
+
+    @keyframes blink {
+      0%, 50% { opacity: 1; }
+      51%, 100% { opacity: 0; }
+    }
+
+
+
+   .welcome-area {
+      width: 100%;
+      min-height: 100vh;
+      background: url("pictures/background.jpg") no-repeat center center;
+      background-size: cover;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-left: 60px;
+      box-sizing: border-box;
+      position: relative;
+      box-shadow: inset 0 0 0 1000px rgba(0,0,0,0.6);
+      z-index: 5;
+    }
+
+    .welcome-box {
+      max-width: 600px;
+    }
+
+    .welcome-box h1 {
+      font-size: 60px;
+      margin: 0 0 20px 0;
+      opacity: 1;
+      transform: translateX(0);
+     
+    }
+
+    .welcome-box p{
+      font-size: 22px;
+      line-height: 1.8;
+    }
+
+    @keyframes fadeSlideFromLeft {
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+  /*  nav {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 20;
+      background-color: rgba(0, 0, 0, 0.7);
+      border-radius: 6px;
+      padding: 10px 30px;
+      font-weight: bold;
+
+
+
+    }
+*/
+/* nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 20;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 0;
+  padding: 10px 0;
+  font-weight: bold;
+}
+
+    nav ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      gap: 40px;
+    }
+*/
+nav {
+  position: fixed;
+
+  left: 0;
+  width: 100%;
+  z-index: 20;
+  background-color: rgba(0, 0, 0, 0.7);
+
+  padding: 10px 0;
+
+  display: flex;
+  justify-content: center; /* centers the content inside nav */
+  align-items: center;
+}
+
+nav ul {
+  display: flex;
+  gap: 60px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+      transition: color 0.3s ease;
+      cursor: pointer;
+    }
+
+    nav a:hover {
+      color: #ddd;
+    }
+
+    .content {
+      position: relative;
+      background: #eff6ff;
+      color: #222;
+      padding: 40px 20px;
+      border-radius: 10px 10px 0 0;
+      box-shadow: 0 0 30px rgba(0,0,0,0.1);
+      box-sizing: border-box;
+      z-index: 1;
+    }
+
+    section {
+      margin-bottom: 60px;
+    }
+
+    section h2 {
+      font-size: 36px;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+      color: #111;
+      text-align: center;
+    }
+
+    section p {
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 10px;
+    }
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+
+}
+
+    .card {
+      background: #f9f9f9;
+      border-radius: 8px;
+      padding: 15px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      color: #333;
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 6px;
+      margin-bottom: 10px;
+    }
+
+#work .card {
+  width: 220px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#work .card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+
+    .card h3 {
+      margin: 10px 0 8px;
+      font-size: 24px;
+      color: #222;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 8px 14px;
+      background-color: #0077cc;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+      font-size: 16px;
+    }
+
+    .button:hover {
+      background-color: #005fa3;
+    }
+
+    /* CERTIFICATE STYLING */
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .gallery .card {
+      width: 220px;
+      height: 350px;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 15px;
+      box-sizing: border-box;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .gallery .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+    }
+
+    .gallery .card img {
+      width: 100%;
+      height: 33%;
+      object-fit: cover;
+      border-radius: 6px;
+      margin-bottom: 15px;
+    }
+
+    .gallery .card h4 {
+      margin: 10px 0;
+      font-size: 16px;
+      color: #333;
+      flex-grow: 1;
+    }
+
+    .gallery .card button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .gallery .card button:hover {
+      background-color: #0056b3;
+    }
+
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.85);
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 8px;
+    }
+
+    .close {
+      position: absolute;
+      top: 50px;
+      right: 50px;
+      font-size: 50px;
+      color: white;
+      cursor: pointer;
+    }
+
+      /* CONTACT SECTION (NEW BLACK BOX) */
+    .contact-section {
+      background-color: #000;
+      color: #fff;
+      padding: 30px 20px;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 0px; /* spacing above footer */
+
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 25px;
+      justify-content: center;
+    }
+
+    .social-icons a {
+      display: inline-block;
+      width: 36px;
+      height: 36px;
+    }
+
+    .social-icons img {
+      width: 100%;
+      height: 100%;
+      filter: invert(1);
+      transition: transform 0.3s ease;
+    }
+
+    .social-icons img:hover {
+      transform: scale(1.1);
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #f0f0f0;
+      font-size: 16px;
+      border-radius: 0 0 10px 10px;
+      color: #666;
+      margin-top: 0;
+    }
+
+    @media (max-width: 600px) {
+      .welcome-box h1 {
+        font-size: 36px;
+      }
+
+      .welcome-box p {
+        font-size: 18px;
+      }
+
+      section h2 {
+        font-size: 28px;
+      }
+
+      .card h3 {
+        font-size: 20px;
+      }
+
+      nav {
+        top: 10px;
+        padding: 6px 12px;
+        font-size: 14px;
+      }
+
+      nav ul {
+        gap: 15px;
+      }
+
+      .social-icons {
+        gap: 20px;
+      }
+
+      .social-icons a {
+        width: 30px;
+        height: 30px;
+      }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <ul>
+      <li><a href="#about">About me</a></li>
+      <li><a href="#work">Projects</a></li>
+      <li><a href="#certificates">Certificates</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="welcome-area">
+    <div class="welcome-box">
+      <h1>Welcome to my portfolio</h1>
+      <div id="typed-text"></div>
+    </div>
+  </div>
+
+  <div class="content">
+    <section id="about">
+      <h2>About Me</h2>
+      <p>Hello, I'm Abenezer. I specialize in Python, C++, and system design, with additional experience in web development. 
+My development approach is: define the vision, structure the steps, and solve with methods. I don’t stop at working solutions — I experiment, iterate, and 
+dig deeper to discover better ways. This mindset helps me uncover new patterns, fix root problems, and build stronger systems.
+
+I believe in collaborative growth: sharing knowledge, supporting teammates, and building solutions that matter. Success, to me, means finishing what
+ I start and growing through every step of the journey. I’m currently expanding my expertise into cybersecurity to write secure design and clean code.
+
+
+</p>
+        </section>
+
+    <section id="work">
+      <h2>My Work</h2>
+      <div class="grid">
+        <div class="card">
+          <img src="pictures/Geezify (5).png" alt="Project Screenshot" />
+          <h3>Project One (Python)</h3>
+          <p>A python tool for the language Ge'ez with a translation, study and number conversion features.                                                                        </p>
+          <a href="https://github.com/Endlessodds/geezify" class="button">View Project</a>
+        </div>
+        <div class="card">
+          <img src="pictures/Geezify (4).png" alt="Project Screenshot" />
+          <h3>Project 2 (C++)</h3>
+          <p> A C++ terminal bank management system simulating core functions: account creation and login with PIN, deposits, withdrawals, balance checks and make transfers.
+</p>
+          <a href="https://github.com/Endlessodds/my-bms" class="button">View Project</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="certificates">
+      <h2>My Certificates</h2>
+      <div class="gallery">
+        <div class="card">
+          <img src="https://i.imgur.com/Nz2h4kx.png" alt="Cert 1">
+          <h4>Cisco  </h4>
+          <button onclick="showModal('https://i.imgur.com/Nz2h4kx.png')">View Certificate</button>
+        </div>
+        <div class="card">
+          <img src="pictures/k.png" alt="Cert 2">
+          <h4>Kibur Python Programming Certificate</h4>
+          <button onclick="showModal('pictures/k.png')">View Certificate</button>
+        </div>
+        <div class="card">
+          <img src="pictures/udacity.png" alt="Cert 3">
+          <h4>Fundamental of programming</h4>
+          <button onclick="showModal('pictures/udacity.png')">View Certificate</button>
+        </div>
+        <div class="card">
+          <img src="pictures/Fund-ai-udacity.jpg" alt="Cert 4">
+          <h4>AI Fundamentals Certificate</h4>
+          <button onclick="showModal('pictures/Fund-ai-udacity.jpg')">View Certificate</button>
+        </div>
+        <div class="card">
+          <img src="https://i.imgur.com/Nz2h4kx.png" alt="Cert 5">
+          <h4>Frontend Basics Certificate</h4>
+          <button onclick="showModal('https://i.imgur.com/Nz2h4kx.png')">View Certificate</button>
+        </div>
+        <div class="card">
+          <img src="pictures/introtocpp.png" alt="Cert 6">
+          <h4>Introduction to C++</h4>
+          <button onclick="showModal('pictures/introtocpp.png')">View Certificate</button>
+        </div>
+        <div class="card">
+          <img src="https://i.imgur.com/5nHJz6h.png" alt="Cert 7">
+          <h4>DevOps Essentials Certificate</h4>
+          <button onclick="showModal('https://i.imgur.com/5nHJz6h.png')">View Certificate</button>
+        </div>
+        <div class="card">
+          <img src="https://i.imgur.com/35rjNd3.png" alt="Cert 8">
+          <h4>Cybersecurity Basics Certificate</h4>
+          <button onclick="showModal('https://i.imgur.com/35rjNd3.png')">View Certificate</button>
+        </div>
+      </div>
+
+      <!-- Modal -->
+      <div class="modal" id="imgModal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img id="modalImage" src="">
+      </div>
+    </section>
+
+
+
+
+  
+
+
+
+    </div>
+
+
+<!-- NEW BLACK CONTACT BOX -->
+  <section class="contact-section" id="contact">
+    <div class="social-icons">
+      <a href="https://github.com/Endlessodds" target="_blank" aria-label="GitHub">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" />
+      </a>
+      <a href="https://t.me/Endlessodds" target="_blank" aria-label="Telegram">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/telegram.svg" alt="Telegram" />
+      </a>
+      <a href="mailto:your.Abenezerkty@gmail.com" aria-label="Email">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg" alt="Email" />
+      </a>
+</section>
+  <!-- ORIGINAL FOOTER LEFT AS IS -->
+  <footer>
+    &copy; 2025 Thanks for stopping by!
+
+  </footer>
+
+  <script>
+
+
+
+
+const text = `Hello! My name is Abenezer Kassahun, a passionate developer fueled by curiosity and creativity.`;
+
+    let i = 0;
+    const speed = 35; // Typing speed in milliseconds
+
+    function typeWriter() {
+      if (i < text.length) {
+        document.getElementById("typed-text").textContent += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, speed);
+      }
+    }
+
+    window.onload = typeWriter;
+
+
+
+
+
+    function showModal(src) {
+      document.getElementById("modalImage").src = src;
+      document.getElementById("imgModal").style.display = "flex";
+    }
+
+    function closeModal() {
+      document.getElementById("imgModal").style.display = "none";
+    }
+  </script>
+</body>
+</html>
