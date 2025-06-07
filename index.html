@@ -1,11 +1,12 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Portfolio</title>
-	
-
+  <link href="https://fonts.googleapis.com/css2?family=Vidaloka&display=swap" rel="stylesheet">
   <style>
     html, body {
       margin: 0;
@@ -18,38 +19,30 @@
       background: white;
     }
 
-#about {
-  font-family: 'Vidaloka', serif;
-  font-size: 20px;
-  background: #fafafa;
-  padding: 40px 30px;
-    padding-top: 5px;
-  border-radius: 10px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-  max-width: 900px;
-  margin: 0 auto 60px;
-  line-height: 1.75;
-  text-align: justify;
-}
+    #about {
+      font-family: 'Vidaloka', serif;
+      font-size: 20px;
+      background: #fafafa;
+      padding: 40px 30px;
+      padding-top: 5px;
+      border-radius: 10px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+      max-width: 900px;
+      margin: 0 auto 60px;
+      line-height: 1.75;
+      text-align: justify;
+    }
 
+    #typed-text {
+      font-family: 'Courier New', monospace;
+      font-size: 1.4rem;
+      color: #00ff88;
+      margin-top: 40px;
+      height: 4em;
+      overflow: hidden;
+    }
 
-
-
-
-#typed-text {
-  font-family: 'Courier New', monospace;
-  font-size: 1.4rem;
-  color: #00ff88;
-  margin-top: 40px;
-
-  /* NEW FIXED HEIGHT TO PREVENT SHIFTING */
-  height: 4em; /* Adjust based on your font-size */
-  overflow: hidden;
-}
-
-
-
- #typed-text::after {
+    #typed-text::after {
       content: '|';
       animation: blink 0.7s infinite;
     }
@@ -59,9 +52,7 @@
       51%, 100% { opacity: 0; }
     }
 
-
-
-   .welcome-area {
+    .welcome-area {
       width: 100%;
       min-height: 100vh;
       background: url("pictures/background.jpg") no-repeat center center;
@@ -86,7 +77,6 @@
       margin: 0 0 20px 0;
       opacity: 1;
       transform: translateX(0);
-     
     }
 
     .welcome-box p{
@@ -101,64 +91,25 @@
       }
     }
 
-  /*  nav {
+    nav {
       position: fixed;
-      top: 20px;
-      left: 50%;
-      transform: translateX(-50%);
+      left: 0;
+      width: 100%;
       z-index: 20;
       background-color: rgba(0, 0, 0, 0.7);
-      border-radius: 6px;
-      padding: 10px 30px;
-      font-weight: bold;
-
-
-
+      padding: 10px 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
-*/
-/* nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 20;
-  background-color: rgba(0, 0, 0, 0.7);
-  border-radius: 0;
-  padding: 10px 0;
-  font-weight: bold;
-}
 
     nav ul {
+      display: flex;
+      gap: 60px;
+      list-style: none;
       margin: 0;
       padding: 0;
-      list-style: none;
-      display: flex;
-      gap: 40px;
     }
-*/
-nav {
-  position: fixed;
-
-  left: 0;
-  width: 100%;
-  z-index: 20;
-  background-color: rgba(0, 0, 0, 0.7);
-
-  padding: 10px 0;
-
-  display: flex;
-  justify-content: center; /* centers the content inside nav */
-  align-items: center;
-}
-
-nav ul {
-  display: flex;
-  gap: 60px;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
 
     nav a {
       color: white;
@@ -201,13 +152,13 @@ nav ul {
       line-height: 1.6;
       margin-bottom: 10px;
     }
-.grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-
-}
+    
+    .grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
 
     .card {
       background: #f9f9f9;
@@ -223,25 +174,39 @@ nav ul {
       margin-bottom: 10px;
     }
 
-#work .card {
-  width: 220px;
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+    #work .card {
+      width: 220px;
+      height: 420px; /* Adjusted fixed height */
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative; /* For absolute positioning of button */
+      padding-bottom: 60px; /* Space for button */
+    }
 
-#work .card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-}
+    #work .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+    }
 
+    #work .card img {
+      height: 150px; /* Fixed height for images */
+      object-fit: cover;
+    }
+    
+    #work .card p {
+      font-size: 16px; /* Slightly smaller font */
+      line-height: 1.5; /* Tighter line height */
+      max-height: none; /* Remove max height */
+      overflow: visible; /* Remove scroll */
+    }
 
     .card h3 {
       margin: 10px 0 8px;
-      font-size: 24px;
+      font-size: 20px; /* Slightly smaller heading */
       color: #222;
     }
 
@@ -255,6 +220,12 @@ nav ul {
       font-weight: bold;
       transition: background-color 0.3s ease;
       font-size: 16px;
+      text-align: center;
+      position: absolute;
+      bottom: 15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80%;
     }
 
     .button:hover {
@@ -348,7 +319,7 @@ nav ul {
       cursor: pointer;
     }
 
-      /* CONTACT SECTION (NEW BLACK BOX) */
+    /* CONTACT SECTION (NEW BLACK BOX) */
     .contact-section {
       background-color: #000;
       color: #fff;
@@ -356,7 +327,6 @@ nav ul {
       display: flex;
       justify-content: center;
       margin-bottom: 0px; /* spacing above footer */
-
     }
 
     .social-icons {
@@ -366,67 +336,58 @@ nav ul {
     }
 
     .social-icons a {
-      display: inline-block;
-      width: 36px;
-      height: 36px;
+      display: block;
+      width: 40px;
+      height: 40px;
+      transition: transform 0.3s ease;
     }
-
+    
+    .social-icons a:hover {
+      transform: scale(1.2);
+    }
+    
     .social-icons img {
       width: 100%;
       height: 100%;
-      filter: invert(1);
-      transition: transform 0.3s ease;
+      filter: invert(1); /* Makes black icons white */
+    }
+    
+    .about-container {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      flex-direction: row; /* Ensure the direction is row */
     }
 
-    .social-icons img:hover {
-      transform: scale(1.1);
+    .about-text {
+      flex: 1;
+      min-width: 250px;
+      order: 2; /* Move text to the right */
     }
 
+    .about-image {
+      flex-shrink: 0;
+      order: 1; /* Move image to the left */
+      margin-right: 20px;
+    }
+
+    .about-image img {
+      width: 150px !important;
+      height: 150px !important;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      display: block;
+    }
+    
     footer {
       text-align: center;
       padding: 20px;
-      background: #f0f0f0;
-      font-size: 16px;
-      border-radius: 0 0 10px 10px;
-      color: #666;
-      margin-top: 0;
+      background-color: #f5f5f5;
+      color: #555;
     }
-
-    @media (max-width: 600px) {
-      .welcome-box h1 {
-        font-size: 36px;
-      }
-
-      .welcome-box p {
-        font-size: 18px;
-      }
-
-      section h2 {
-        font-size: 28px;
-      }
-
-      .card h3 {
-        font-size: 20px;
-      }
-
-      nav {
-        top: 10px;
-        padding: 6px 12px;
-        font-size: 14px;
-      }
-
-      nav ul {
-        gap: 15px;
-      }
-
-      .social-icons {
-        gap: 20px;
-      }
-
-      .social-icons a {
-        width: 30px;
-        height: 30px;
-      }
   </style>
 </head>
 <body>
@@ -450,16 +411,18 @@ nav ul {
   <div class="content">
     <section id="about">
       <h2>About Me</h2>
-      <p>Hello, I'm Abenezer. I specialize in Python, C++, and system design, with additional experience in web development. 
-My development approach is: define the vision, structure the steps, and solve with methods. I don’t stop at working solutions — I experiment, iterate, and 
-dig deeper to discover better ways. This mindset helps me uncover new patterns, fix root problems, and build stronger systems.
-
-I believe in collaborative growth: sharing knowledge, supporting teammates, and building solutions that matter. Success, to me, means finishing what
- I start and growing through every step of the journey. I’m currently expanding my expertise into cybersecurity to write secure design and clean code.
-
-
-</p>
-        </section>
+      <div class="about-container">
+        <div class="about-image">
+          <!-- Using the actual image instead of placeholder -->
+          <img src="pictures/pf.png" alt="Abenezer Kassahun">
+        </div>
+        <div class="about-text">
+          <p>Hello, I'm Abenezer. I specialize in Python, C++, and system design, with additional experience in web development. 
+          My development approach is: define the vision, structure the steps, and solve with methods. I don't stop at working solutions — I experiment, iterate, and 
+          dig deeper to discover better ways. This mindset helps me uncover new patterns, fix root problems, and build stronger systems.</p>
+        </div>
+      </div>
+    </section>
 
     <section id="work">
       <h2>My Work</h2>
@@ -467,14 +430,13 @@ I believe in collaborative growth: sharing knowledge, supporting teammates, and 
         <div class="card">
           <img src="pictures/Geezify (5).png" alt="Project Screenshot" />
           <h3>Project One (Python)</h3>
-          <p>A python tool for the language Ge'ez with a translation, study and number conversion features.                                                                        </p>
+          <p>A python tool for the language Ge'ez with a translation, study and number conversion features.</p>
           <a href="https://github.com/Endlessodds/geezify" class="button">View Project</a>
         </div>
         <div class="card">
           <img src="pictures/Geezify (4).png" alt="Project Screenshot" />
           <h3>Project 2 (C++)</h3>
-          <p> A C++ terminal bank management system simulating core functions: account creation and login with PIN, deposits, withdrawals, balance checks and make transfers.
-</p>
+          <p>A C++ terminal bank management system simulating core functions: account creation and login with PIN, deposits, withdrawals, balance checks and transfers.</p>
           <a href="https://github.com/Endlessodds/my-bms" class="button">View Project</a>
         </div>
       </div>
@@ -483,11 +445,6 @@ I believe in collaborative growth: sharing knowledge, supporting teammates, and 
     <section id="certificates">
       <h2>My Certificates</h2>
       <div class="gallery">
-        <!-- <div class="card">
-          <img src="https://i.imgur.com/Nz2h4kx.png" alt="Cert 1">
-          <h4>Cisco  </h4>
-          <button onclick="showModal('https://i.imgur.com/Nz2h4kx.png')">View Certificate</button>
-        </div> -->
         <div class="card">
           <img src="pictures/k.png" alt="Cert 2">
           <h4>Kibur Python Programming Certificate</h4>
@@ -503,26 +460,11 @@ I believe in collaborative growth: sharing knowledge, supporting teammates, and 
           <h4>AI Fundamentals Certificate</h4>
           <button onclick="showModal('pictures/Fund-ai-udacity.jpg')">View Certificate</button>
         </div>
-        <!--<div class="card">
-          <img src="https://i.imgur.com/Nz2h4kx.png" alt="Cert 5">
-          <h4>Frontend Basics Certificate</h4>
-          <button onclick="showModal('https://i.imgur.com/Nz2h4kx.png')">View Certificate</button>
-        </div>-->
         <div class="card">
           <img src="pictures/introtocpp.png" alt="Cert 6">
           <h4>Introduction to C++</h4>
           <button onclick="showModal('pictures/introtocpp.png')">View Certificate</button>
         </div>
-        <!--<div class="card">
-          <img src="https://i.imgur.com/5nHJz6h.png" alt="Cert 7">
-          <h4>DevOps Essentials Certificate</h4>
-          <button onclick="showModal('https://i.imgur.com/5nHJz6h.png')">View Certificate</button>
-        </div>
-        <div class="card">
-          <img src="https://i.imgur.com/35rjNd3.png" alt="Cert 8">
-          <h4>Cybersecurity Basics Certificate</h4>
-          <button onclick="showModal('https://i.imgur.com/35rjNd3.png')">View Certificate</button>
-        </div>-->
       </div>
 
       <!-- Modal -->
@@ -531,18 +473,9 @@ I believe in collaborative growth: sharing knowledge, supporting teammates, and 
         <img id="modalImage" src="">
       </div>
     </section>
+  </div>
 
-
-
-
-  
-
-
-
-    </div>
-
-
-<!-- NEW BLACK CONTACT BOX -->
+  <!-- NEW BLACK CONTACT BOX -->
   <section class="contact-section" id="contact">
     <div class="social-icons">
       <a href="https://github.com/Endlessodds" target="_blank" aria-label="GitHub">
@@ -551,23 +484,19 @@ I believe in collaborative growth: sharing knowledge, supporting teammates, and 
       <a href="https://t.me/Endlessodds" target="_blank" aria-label="Telegram">
         <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/telegram.svg" alt="Telegram" />
       </a>
-      <a href="mailto:your.Abenezerkty@gmail.com" aria-label="Email">
+      <a href="mailto:Abenezerkty@gmail.com" aria-label="Email">
         <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg" alt="Email" />
       </a>
-</section>
+    </div>
+  </section>
+  
   <!-- ORIGINAL FOOTER LEFT AS IS -->
   <footer>
     &copy; 2025 Thanks for stopping by!
-
   </footer>
 
   <script>
-
-
-
-
-const text = `Hello! My name is Abenezer Kassahun, a passionate developer fueled by curiosity and creativity.`;
-
+    const text = `Hello! My name is Abenezer Kassahun, a passionate developer fueled by curiosity and creativity.`;
     let i = 0;
     const speed = 35; // Typing speed in milliseconds
 
@@ -581,10 +510,6 @@ const text = `Hello! My name is Abenezer Kassahun, a passionate developer fueled
 
     window.onload = typeWriter;
 
-
-
-
-
     function showModal(src) {
       document.getElementById("modalImage").src = src;
       document.getElementById("imgModal").style.display = "flex";
@@ -594,5 +519,5 @@ const text = `Hello! My name is Abenezer Kassahun, a passionate developer fueled
       document.getElementById("imgModal").style.display = "none";
     }
   </script>
-</body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'94c06b6556d4ec21',t:'MTc0OTMwMjEzOS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
